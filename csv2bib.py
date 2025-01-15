@@ -12,13 +12,14 @@ Usage:
 To run the script, use the following Python command in your terminal:
 
 ```bash
-python csv2bib.py input.csv output.bib
+python csv2bib.py <input_csv_path> <output_bib_path>
 ```
 
-Replace `input.csv` with the path to your CSV file containing bibliographic data and `output.bib` with the desired output file path for the BibTeX file.
+Replace `<input_csv_path>` with the path to your CSV file containing bibliographic data and `<output_bib_path>` with the desired output file path for the BibTeX file.
 """
 
 import csv
+import sys
 
 def generate_bibtex_key(authors, year):
     """
@@ -70,4 +71,9 @@ def convert_csv_to_bibtex(csv_file, bibtex_file):
                     print(f"Error processing row: {row}\n{e}")
 
 if __name__ == "__main__":
-    convert_csv_to_bibtex("input.csv", "output.bib")
+    if len(sys.argv) != 3:
+        print("Usage: python csv2bib.py <input_csv_path> <output_bib_path>")
+    else:
+        input_csv_path = sys.argv[1]
+        output_bib_path = sys.argv[2]
+        convert_csv_to_bibtex(input_csv_path, output_bib_path)
