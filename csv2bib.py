@@ -33,5 +33,4 @@ def convert_csv_to_bibtex(csv_file, bibtex_file):
                                f"}}\n\n"
                 bibtexfile.write(bibtex_entry)
 
-# Example usage
-convert_csv_to_bibtex("scopus.csv", "scopus.bib")
+convert_csv_to_bibtex("input.csv", "output.bib")
